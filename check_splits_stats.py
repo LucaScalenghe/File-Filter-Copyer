@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import shutil
 
-original_dir = Path(r"C:\Users\lucas\Desktop\Mini-CREMA")
+original_dir = Path(r"C:\Users\lucas\Desktop\Mini-CREMA\Mini-CREMA")
 train_dir = Path(r"C:\Users\lucas\Desktop\Cartel\Mini-CREMA\train")
 test_dir = Path(r"C:\Users\lucas\Desktop\Cartel\Mini-CREMA\test")
 val_dir = Path(r"C:\Users\lucas\Desktop\Cartel\Mini-CREMA\val")
@@ -23,9 +23,10 @@ for filepath in original_dir.iterdir():
     i_tot = i_tot + 1
 
 print("The original directory has this: ")
-print(f"{i_ang/i_tot} of anger clips")
-print(f"{i_hap/i_tot} of happy clips")
-print(f"{i_neu/i_tot} of neutral clips")
+print(f"{i_ang/i_tot} of anger clips, total of {i_ang} clips")
+print(f"{i_hap/i_tot} of happy clips, total of {i_hap} clips")
+print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")
+print("")
 
 # -----------------------------------------------------------------------------------------------------------
 i_ang = 0
@@ -43,9 +44,10 @@ for filepath in train_dir.iterdir():
     i_tot = i_tot + 1
 
 print("The train directory has this: ")
-print(f"{i_ang/i_tot} of anger clips")
-print(f"{i_hap/i_tot} of happy clips")
-print(f"{i_neu/i_tot} of neutral clips")
+print(f"{i_ang/i_tot} of anger clips, total of {i_ang} clips")
+print(f"{i_hap/i_tot} of happy clips, total of {i_hap} clips")
+print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")
+print("")
 
 # -----------------------------------------------------------------------------------------------------------
 i_ang = 0
@@ -63,9 +65,10 @@ for filepath in test_dir.iterdir():
     i_tot = i_tot + 1
 
 print("The test directory has this: ")
-print(f"{i_ang/i_tot} of anger clips")
-print(f"{i_hap/i_tot} of happy clips")
-print(f"{i_neu/i_tot} of neutral clips")
+print(f"{i_ang/i_tot} of anger clips, total of {i_ang} clips")
+print(f"{i_hap/i_tot} of happy clips, total of {i_hap} clips")
+print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")
+print("")
 
 # -----------------------------------------------------------------------------------------------------------
 i_ang = 0
@@ -83,6 +86,6 @@ for filepath in val_dir.iterdir():
     i_tot = i_tot + 1
 
 print("The validation directory has this: ")
-print(f"{i_ang/i_tot} of anger clips")
-print(f"{i_hap/i_tot} of happy clips")
-print(f"{i_neu/i_tot} of neutral clips")
+print(f"{i_ang/i_tot} of anger clips, total of {i_ang} clips")
+print(f"{i_hap/i_tot} of happy clips, total of {i_hap} clips")
+print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")

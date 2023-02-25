@@ -91,13 +91,15 @@ print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")
 print("")
 
 x=0
+sampling_rate = 16000
 for filepath in train_dir.iterdir():
     new_name = "augment1" + filepath.name
-    signal, sr = librosa.load(filepath)
-    new_file = augment1(signal,sr)
-    sf.write(train_dir / new_name, new_file, sr)
+    signal, _ = librosa.load(filepath)
+    new_file = augment1(signal,sampling_rate)
+    sf.write(train_dir / new_name, new_file, sampling_rate)
     print(f'{x} - file augmented {new_name}')
     x = x + 1
 
 print("Number of augmented files added to directory: ", x)
+
 

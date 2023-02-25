@@ -1,9 +1,18 @@
-import os
-from pathlib import Path
-import shutil
 import random
+import librosa
+import numpy as np
+import soundfile as sf
+from pathlib import Path
+from audiomentations import Compose, AddGaussianNoise, PitchShift, HighPassFilter
+import shutil
 
 train_dir = Path(r"C:\Users\lucas\Desktop\ciao\train")
+
+augment1 = Compose([
+    AddGaussianNoise(min_amplitude=0.1, max_amplitude=0.2, p=0.65),
+    PitchShift(min_semitones=-8, max_semitones=+8, p=0.65)
+])
+
 
 i_ang = 0
 ang_file_list = []
@@ -80,3 +89,15 @@ print(f"{i_ang/i_tot} of anger clips, total of {i_ang} clips")
 print(f"{i_hap/i_tot} of happy clips, total of {i_hap} clips")
 print(f"{i_neu/i_tot} of neutral clips, total of {i_neu} clips")
 print("")
+
+x=0
+for filepath in train_dir.iterdir():
+    new_name = "augment1" + filepath.name
+    signal, sr = librosa.load(filepath)
+    new_file = augment1(signal,sr)
+    sf.write(train_dir / new_name, new_file, sr)
+    print(f'{x} - file augmented {new_name}')
+    x = x + 1
+
+print("Number of augmented files added to directory: ", x)
+
